@@ -11,8 +11,6 @@ async function getData() {
 }
 
 async function initializeData() {
-  // const users = await getData();
-  // if (users.length > 0) return;
   const response = await fetch("http://localhost:3000/api/user/create");
   const data = await response.json();
   console.log(".....");
@@ -22,13 +20,8 @@ async function initializeData() {
 
 
 export default async function Page() {
-  // await sequelize.sync({force: true});
-  await sequelize.sync();
-  console.log("db ready!");
   await initializeData();
   const users = await getData();
-  // console.log("!!!!!!!!");
-  // console.log(users);
 
   return (
     <main className="flex min-h-screen flex-col justify-between p-10">
