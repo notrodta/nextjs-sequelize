@@ -1,0 +1,6 @@
+sequelize typescript:
+https://www.zipy.ai/blog/sequelize-typescript-tutorial-with-example
+https://dev.to/jctaveras/sequelize-typescript-what-you-need-to-know-41mj
+
+
+https://github.com/RobinBuschmann/sequelize-typescript-example/blob/master/lib/sequelize.ts

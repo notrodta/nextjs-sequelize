@@ -1,3 +1,4 @@
+import sequelize from "@/db_connection";
 import User from "../../models/User";
 
 export const dynamic = "force-dynamic";
@@ -14,13 +15,18 @@ async function initializeData() {
   if (users.length > 0) return;
   const response = await fetch("http://localhost:3000/api/user/create");
   const data = await response.json();
+  console.log(".....");
+  console.log(data);
   return data;
 }
 
 
 export default async function Page() {
+  await sequelize.sync({force: true});
   await initializeData();
   const users = await getData();
+  console.log("!!!!!!!!");
+  console.log(users);
 
   return (
     <main className="flex min-h-screen flex-col justify-between p-10">
