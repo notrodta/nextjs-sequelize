@@ -9,3 +9,11 @@ export async function GET(request:NextRequest) {
     console.log("all Users:", JSON.stringify(users, null, 2));
     return Response.json(users);
 }
+
+export async function POST(request: NextRequest) {
+    await sequelize.sync({ alter: true });
+    const user = await User.create({ name: 'Jane' });
+    console.log(user instanceof User)
+    console.log(user.name);
+    return Response.json(user);
+}

@@ -11,7 +11,10 @@ async function getData() {
 }
 
 async function initializeData() {
-  const response = await fetch("http://localhost:3000/api/user/create");
+  // const response = await fetch("http://localhost:3000/api/user/create");
+  const response = await fetch("http://localhost:3000/api/user", {
+    method: 'POST'
+  });
   const data = await response.json();
   console.log(".....");
   console.log(data);

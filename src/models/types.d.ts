@@ -1,3 +1,9 @@
+interface BaseAttributes {
+  id: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
 interface TravelAttributes {
   id: string;
   name: string;

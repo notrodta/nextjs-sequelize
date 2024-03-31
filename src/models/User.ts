@@ -45,12 +45,17 @@ import {
   CreatedAt,
   UpdatedAt,
   BeforeCreate,
+  ForeignKey,
+  BelongsTo,
 } from "sequelize-typescript";
+import Team from "./Team";
 
 interface UserAttributes {
   id: string;
   name: string;
   preferred_name: string;
+  teamId: number;
+  team: Team;
   created_at: Date;
   updated_at: Date;
 }
@@ -77,6 +82,13 @@ class User extends Model<UserAttributes> {
     type: DataType.STRING,
   })
   declare preferred_name: string;
+
+  @ForeignKey(() => Team)
+  @Column
+  declare teamId: number;
+
+  @BelongsTo(() => Team)
+  declare team: Team;
 
   @CreatedAt
   declare created_at: Date;
