@@ -3,6 +3,7 @@ import User from "./User";
 
 interface UserAttributes extends BaseAttributes {
   name: string;
+  users: User[];
 }
 
 @Table
@@ -20,7 +21,7 @@ class Team extends Model<UserAttributes> {
   declare name: string;
 
   @HasMany(() => User)
-  declare players: User[];
+  declare users: User[];
 
   @CreatedAt
   declare created_at: Date;
