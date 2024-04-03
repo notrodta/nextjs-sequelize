@@ -1,4 +1,4 @@
-import { Column, CreatedAt, DataType, HasMany, Model, Table, UpdatedAt } from "sequelize-typescript";
+import { BelongsTo, Column, CreatedAt, DataType, ForeignKey, HasMany, Model, Table, UpdatedAt } from "sequelize-typescript";
 import User from "./User";
 
 interface UserAttributes extends BaseAttributes {
@@ -29,5 +29,8 @@ class Team extends Model<UserAttributes> {
   @UpdatedAt
   declare updated_at: Date;
 }
+
+
+  
 
 export default Team;

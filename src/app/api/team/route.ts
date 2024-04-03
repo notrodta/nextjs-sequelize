@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  await sequelize.sync();
+  await sequelize.sync({force: true});
   const team = await Team.create(
     { name: "Team 3", users: [{ name: "bob" }, {name: 'sam'}] },
     { include: [User] }
