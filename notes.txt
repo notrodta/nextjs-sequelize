@@ -6,3 +6,6 @@ https://dev.to/jctaveras/sequelize-typescript-what-you-need-to-know-41mj
 https://github.com/RobinBuschmann/sequelize-typescript-example/blob/master/lib/sequelize.ts
 
 https://sequelize.org/docs/v6/advanced-association-concepts/creating-with-associations/
+
+association issue:
+https://github.com/sequelize/sequelize-typescript/issues/117

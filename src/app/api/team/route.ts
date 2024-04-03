@@ -1,6 +1,6 @@
 import sequelize from "@/db_connection";
 import Team from "@/models/Team";
-import User from "@/models/User";
+import User, { Book } from "@/models/User";
 import { type NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -17,8 +17,11 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   await sequelize.sync({force: true});
   const team = await Team.create(
-    { name: "Team 3", users: [{ name: "bob" }, {name: 'sam'}] },
-    { include: [User] }
+    { name: "Team 3", users: [{ name: "bob", books: [{name: 'book1'}] }, {name: 'sam', books: [{name: 'book2'}]} ]},
+    // { include: [User] }
+    {
+        include: [{model: User, include: [Book]}]
+    }
   );
   console.log(team instanceof Team);
   console.log(team.name);
